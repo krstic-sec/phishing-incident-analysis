@@ -20,7 +20,7 @@ An unsolicited email purporting to be from an individual named *"Hector Miller"*
 
 ## 📂 2. Evidence & Artifacts
 
-* 📄 **[Sanitized Raw Email Sample (`.eml`)](samples/phishing_sample_2026-11-04.eml)** — Complete raw RFC 5322 email headers and quoted-printable body with target PII redacted.
+* 📄 **[Sanitized Raw Email Sample (`.eml.txt`)](phishing_sample_2026-11-04.eml.txt)** — Complete raw RFC 5322 email headers and quoted-printable body with target PII redacted.
 
 | Header Field | Observed Value | Security Assessment |
 | :--- | :--- | :--- |
