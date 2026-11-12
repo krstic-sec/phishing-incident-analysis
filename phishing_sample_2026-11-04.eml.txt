@@ -1,0 +1,124 @@
+Delivered-To: krstic-sec@incidentreport.com
+Received: by [REDACTED_INTERNAL_IPV6] with SMTP id cs13csp406866qnb;
+        Wed, 4 Nov 2026 00:54:30 -0800 (PST)
+X-Received: by [REDACTED_INTERNAL_IPV6] with SMTP id d9443c01a7336-2eb364e9c5dmr140159605ad.41.1793782470722;
+        Wed, 04 Nov 2026 00:54:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793782470; cv=none;
+        d=google.com; s=arc-20260327;
+        b=bWXvXrmBmSBBgR0OTuea0KjgO2HBdjpT1XNKHZCBMJbfa9TpzJxBiAf2XNunCJPxAt
+         v48Q9OjScMwY7W8fpZrXpNPadZBGMrpFYAxTBED4xEGbwfX5ut+gmXH9+FyiAq5X140a
+         F5GSln50P2CMp+rOUKtSxWhR/LTlz/He86Wtv64J0cXOFItrBWaXIVNsS81QBK0YelGv
+         85mqVRKu96YhQfNUBR+G/0LgZakgfNFwyILyQe6hWCy3K1WLm+Ve2lKOLhZ7LmdRfkh9
+         zJCevsgYJpXlbXJNWjelTcSXlnJJoEPWTYPOzjV67tGwZTG2bnacm1Q362mP7gyPDAwq
+         tKww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:content-transfer-encoding:subject:to:from:date
+         :message-id:dkim-signature;
+        bh=51zkcXz+O8zUnYH2ICz88PJmSj9PEWlXa8Uq5MV/cA8=;
+        fh=J4nv+FQZczseOxaXujsSA87vNdRGVrtYr0bTvaAleLk=;
+        b=ZGBXxuhp+JdftMtE6gIUjTUD5GQyicYOru+aE2khoUQS03yc32RwiWiylPCbRXrQ1u
+         vIpzftqIbgq++NNJvW2jrcsJfSo+fF4Yp4mo5Y8vTTZ5isoEHZZKd4bVsqSUz7xB/YvH
+         Mi+95uEViZgwRT+KrjoMzjjtB0kVj9EjbWH1ks1askDr0xi86gdgNJNpNS9V5Y/lMbq1
+         +yXZEUiU2qARY+++FWZz69nZA6Eqk1qjnbkm7uSRCELmmySZ53yXu92KC7v24Rnk2U65
+         oaDYi5Ru+omHi2IhMTIbtqu0d1CV78M+Vk7KAAZmUg3dydNCo+FrfUPOGbUiGEWJqyZl
+         HPmw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20260707 header.b="Ho0KN/4t";
+       spf=pass (google.com: domain of hectormiller984321@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=hectormiller984321@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <hectormiller984321@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id d9443c01a7336-2ed09154deesor2287795ad.8.2026.11.04.00.54.30
+        for <krstic-sec@incidentreport.com>
+        (Google Transport Security);
+        Wed, 04 Nov 2026 00:54:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of hectormiller984321@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20260707 header.b="Ho0KN/4t";
+       spf=pass (google.com: domain of hectormiller984321@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=hectormiller984321@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793782470; x=1794387270; dara=google.com;
+        h=mime-version:content-transfer-encoding:content-type:subject:to:from
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=51zkcXz+O8zUnYH2ICz88PJmSj9PEWlXa8Uq5MV/cA8=;
+        b=Ho0KN/4tmxEKTFiMGWr8EMDf4lJ1gNSAdfSBIV8tpq9pVKhLt/pINRlnVQh58zUvuE
+         I/iNDSL10hFH3W82IZ2Nbdylv1REq2PffNn7AW5zE5tTfOG/YAMx3NGchcVOHDG5G428
+         NZsHUyar5jE/DPFEegQoJ7Y9gxapEfsV1fusWvQOURM0H996m7W5ehagMQNq6ZX7U2L2
+         04uK2IzHVKV+lhcDYibswNSIyWrMiei8//ysai5HNzbITp6MQHhjYMC199HgemIuhj6i
+         ffx/DjusfsXJXTFWQeqZS1N34AePyQ8xrtrUvZGutpCmgqVPzzeiybA8+iiGjed9TPL+
+         wnfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793782470; x=1794387270;
+        h=mime-version:content-transfer-encoding:content-type:subject:to:from
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=51zkcXz+O8zUnYH2ICz88PJmSj9PEWlXa8Uq5MV/cA8=;
+        b=VJNWYPEH9y8MjXXXS1va7P6UinMNOn/jZfjvs92ctOTGyuTr1ClTFTqWYx69olohhi
+         f439s5bnaAI9VZw9ZmUSV/Mt1R0mILGm/7eBvHXhfe9yOoHnQl/ucEdyBGX37XRXhSiY
+         osNMPZrurbzF4g7oh7K1E9SgVMkzLT2/d2LkG7TtIJEJrkKYUvJ09zLV0KcAvQSyByfS
+         mKMp+0dZCFWaxCffffJM9Pcaz4iTtFPW7q577o4M7mCFNZSD7ciQf4ZqlJDfaLq7r/wg
+         0h6BHKYfYDjEJRA4xeUQFk6bZoEs6pPxKUHJAQSd6ptWXsEyZMMU1MQwEaO2wi0QNP/I
+         qwhQ==
+X-Gm-Message-State: APuU4Z/33Iw5qmY3GqxIhH38vmcVne2kG5YuQS1CdITYcpSDnZNYGlxa
+	R5VI0EFF9vUg10apFMe+LgeTO9/TNtLcOYx69ZjQermZUFtYthYq5PQmpILsYvE=
+X-Gm-Gg: AYBFou279Y1TqWmNIQNYFMkJfJkpvROf1cbA728hKvHikU8DSNqoIkMzH7v0eRmrbiv
+	F49mMr/SY1lytn4d9qxGXUAx5gaDyi/iF3rYR9SabUIRQTOb0cCJ4Fn7MOvtsqsTQjeN8h83zlh
+	jkjOaf6O5tu4s+WMqX00Jk/uWcn9XqfYs3/kM6lxkETy4bmix5oa2shItTw5Doy7g2k7v7gkcJT
+	qpN0SQW7mKD9WqQP/b86TYRVcH2U+azQNnMVi+D9Gyyl11rLMkwZc+wxnXplWBD08Rkb76aU/YF
+	FmdJkwfo3SMpqH9Wr08sg8pJQnrFPYsa0VUV4GuR4ST34B9d8vGHOfhL9oRsKNyQdTI11iOgiHX
+	OTuyhTapDRJMnsUFCffjyX/piuP+fcL5DfekWrEsSmj++F7rWGC8OI5FpAIbHolXA/BAvgYy5Sp
+	3ewS9ZGNiCagRFFQ+70ZRi9xv0FYRSZ+2D0m/M9bxU/sMha+u6Fnq7w9/cDCkQfWdZEEhupF0N7
+	V5XkhOgutwWTYqmRdlJ3xzAWjrmA0Rdh+pGfqQ+uW6rqLr3QscDM9BHzOTULsgjZJGfCR/miJU/
+	WjQysTUzZX7MrCOaSZEkWBTuXhJxIggGYpft4c7R03U76L5/4RMjoj4vtNv/oNs=
+X-Received: by [REDACTED_INTERNAL_IPV6] with SMTP id 98e67ed59e1d1-3ae897994dcmr13807075a91.48.1793782470231;
+        Wed, 04 Nov 2026 00:54:30 -0800 (PST)
+Return-Path: <hectormiller984321@gmail.com>
+Received: from [198.18.5.82] (211-22-182-103.hinet-ip.hinet.net. [211.22.182.103])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b09445a7f6sm2946374a91.6.2026.11.04.00.54.27
+        for <krstic-sec@incidentreport.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Nov 2026 00:54:29 -0800 (PST)
+Message-ID: <6aeaf2c5.6b11b533.2f8be3.602c@mx.google.com>
+Date: Wed, 04 Nov 2026 00:54:29 -0800 (PST)
+From: Hector Miller <hectormiller984321@gmail.com>
+To: krstic-sec@incidentreport.com
+Subject: A Simple Question: Are You Happy with Your Life?
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello [Target User]!
+
+My name is Hector, and I came across your profile on Github. I hope you don=
+=E2=80=99t mind me reaching out.
+
+I=E2=80=99d like to ask you a simple but meaningful question: Are you happy w=
+ith your life right now?
+
+Life can be beautiful, but we all go through challenging times. Sometimes, ha=
+ving someone who listens without judgment can make a real difference.
+
+I=E2=80=99m involved in a personal social initiative focused on connecting wi=
+th people, listening to their experiences, and offering support whenever I ca=
+n.
+
+If you=E2=80=99re going through a difficult time or simply need someone to ta=
+lk to, I=E2=80=99d be happy to listen. You don=E2=80=99t have to share anythi=
+ng you=E2=80=99re uncomfortable with, and there=E2=80=99s absolutely no press=
+ure.
+
+If there=E2=80=99s a challenge you=E2=80=99re facing, perhaps we can talk abo=
+ut it and explore whether there=E2=80=99s a way I can help.
+
+I=E2=80=99m available to chat whenever possible, and I=E2=80=99d be glad to c=
+onnect if you=E2=80=99re comfortable with that.
+
+Wishing you happiness, peace, and all the best!
+
+Thanks again,
+Hector
